@@ -23,20 +23,26 @@ export const TaskList: React.FC<Props> = React.memo(({ tasks, setTasks }) => {
       <ListDesign>
         <p>読み込み成功</p>
       </ListDesign>
-      {tasks.map((tasks, index) => (
-        <li key={`todo-${index}`}>
-          {tasks.isDone ? <s>{tasks.label}</s> : tasks.label}
-          <input
-            onChange={(e) => handleCheckBox(e, index)}
-            type="checkbox"
-            checked={tasks.isDone}
-          />
-        </li>
-      ))
-      }
+      <Wrapper>
+        {tasks.map((tasks, index) => (
+          <li key={`todo-${index}`}>
+            {tasks.isDone ? <s>{tasks.label}</s> : tasks.label}
+            <input
+              onChange={(e) => handleCheckBox(e, index)}
+              type="checkbox"
+              checked={tasks.isDone}
+            />
+          </li>
+        ))
+        }
+      </Wrapper>
     </ul >
   );
 });
+
+const Wrapper = styled.div`
+height: 50px;
+`
 
 const ListDesign = styled.div`
   z-index: 999;
