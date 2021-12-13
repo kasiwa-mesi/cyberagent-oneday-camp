@@ -27,6 +27,7 @@ export const TaskForm: React.FC<Props> = ({
   }
 
   // 完了したTaskを削除する
+  // ここにCSSアニメーションを入れる。
   const handleClearTasks = () => {
     const newTasks = tasks.filter((task) => !task.isDone);
     setTasks(newTasks);
